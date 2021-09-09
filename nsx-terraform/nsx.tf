@@ -77,7 +77,7 @@ variable "nsx_tag" {
 # Gateways will be connected to the T0 Gateway
 #
 data "nsxt_policy_edge_cluster" "demo" {
-  display_name = "EdgeCluster"
+  display_name = "edge-cluster"
 }
 
 data "nsxt_policy_transport_zone" "overlay_tz" {
@@ -85,7 +85,7 @@ data "nsxt_policy_transport_zone" "overlay_tz" {
 }
 
 data "nsxt_policy_tier0_gateway" "t0_gateway" {
-  display_name = "T0-GW"
+  display_name = "T0"
 }
 
 #
