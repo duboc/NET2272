@@ -1,0 +1,35 @@
+inputs:
+  nsx_tag_scope:
+    type: string
+    default: NET2272
+  nsx_tag:
+    type: string
+    default: vmworld-2021
+  nsx_manager:
+    type: string
+    default: 10.182.3.46
+    format: hidden
+  nsx_username:
+    type: string
+    default: admin
+    format: hidden
+  nsx_password:
+    type: string
+    default: Admin!23Admin
+    format: hidden
+resources:
+  terraform:
+    type: Cloud.Terraform.Configuration
+    properties:
+      variables:
+        nsx_tag_scope: '${input.nsx_tag_scope}'
+        nsx_tag: '${input.nsx_tag}'
+        nsx_manager: '${input.nsx_manager}'
+        nsx_username: '${input.nsx_username}'
+        nsx_password: '${input.nsx_password}'
+      providers: []
+      terraformVersion: 0.12.29
+      configurationSource:
+        repositoryId: 5ecb3d16-b07c-42f7-8df2-1ae8810d5a24
+        commitId: b4243870ca410fa62e8655d39d227d5ba5c0d714
+        sourceDirectory: nsx-terraform

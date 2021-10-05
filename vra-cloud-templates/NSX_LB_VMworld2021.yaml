@@ -1,0 +1,26 @@
+formatVersion: 1
+inputs: {}
+resources:
+  Cloud_NSX_Network_1:
+    type: Cloud.NSX.Network
+    properties:
+      networkType: routed
+      constraints:
+        - tag: 'net:routed'
+  Cloud_NSX_LoadBalancer_1:
+    type: Cloud.NSX.LoadBalancer
+    properties:
+      routes:
+        - algorithm: ROUND_ROBIN
+          port: 80
+          protocol: HTTPS
+      network: '${resource.Cloud_NSX_Network_1.id}'
+      instances: '${resource.Cloud_Machine_1[*].id}'
+  Cloud_Machine_1:
+    type: Cloud.Machine
+    properties:
+      image: Ubuntu1804
+      flavor: Small
+      networks:
+        - network: '${resource.Cloud_NSX_Network_1.id}'
+      count: 2

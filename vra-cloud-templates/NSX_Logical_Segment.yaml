@@ -1,0 +1,7 @@
+formatVersion: 1
+inputs: {}
+resources:
+  Cloud_NSX_Network_1:
+    type: Cloud.NSX.Network
+    properties:
+      networkType: routed
